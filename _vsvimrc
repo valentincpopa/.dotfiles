@@ -1,0 +1,103 @@
+set ignorecase
+set smartcase
+set incsearch
+set tabstop=4
+set shiftwidth=4
+set hlsearch=false
+
+let mapleader=" "
+
+nnoremap <leader>vrr :vsc Refactor.Rename<cr>
+nnoremap <leader>vrf :vsc Edit.FindAllReferences<cr>
+nnoremap <leader>vca :vsc View.QuickActions<cr>
+
+nnoremap <C-l> :vsc View.NextError<cr>zz
+nnoremap <C-h> :vsc View.PreviousError<cr>zz
+
+nnoremap <leader>m :vsc Edit.NextMethod<cr>
+nnoremap <leader>M :vsc Edit.PreviousMethod<cr>
+
+nnoremap <leader>kf :vsc Edit.FormatDocument<cr>
+nnoremap <leader>ke :vsc Edit.RemoveAndSort<cr>
+
+nnoremap <C-o> :vsc View.NavigateBackward<cr>
+nnoremap <C-i> :vsc View.NavigateForward<cr>
+
+nnoremap <leader>s :%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>
+
+nnoremap <C-d> <C-d>zz
+nnoremap <C-u> <C-u>zz
+
+vnoremap <leader>y "+y
+nnoremap <leader>y "+y
+nnoremap <leader>Y "+Y
+
+nnoremap K :vsc Edit.QuickInfo<cr>
+nnoremap <C-f> :vsc Edit.Find<cr>
+
+inoremap <C-Space> :vsc Edit.ListMembers<cr>
+inoremap <C-S-Space> :vsc Edit.ParameterInfo<cr>
+
+nnoremap <C-b> :vsc Edit.PreviousSubword<cr>
+nnoremap <C-w> :vsc Edit.NextSubword<cr>
+xnoremap <C-b> :vsc Edit.PreviousSubwordExtend<cr>
+xnoremap <C-w> :vsc Edit.NextSubwordExtend<cr>
+
+nnoremap gd :vsc Edit.GoToDefinition<cr>
+nnoremap gi :vsc Edit.GoToImplementation<cr>
+
+nnoremap n nzz
+nnoremap N Nzz
+
+nnoremap <leader>tx :vsc TestExplorer.ShowTestExplorer<cr>
+nnoremap <leader>er :vsc View.ErrorList<cr>
+
+nnoremap <leader>tb :vsc Debug.ToggleBreakpoint<cr>
+nnoremap <leader>eb :vsc Debug.EnableAllBreakpoints<cr>
+nnoremap <leader>db :vsc Debug.DisableAllBreakpoints<cr>
+nnoremap <leader>ddb :vsc Debug.DeleteAllBreakpoints<cr>
+
+nnoremap <leader>ad :vsc SolutionExplorer.SyncWithActiveDocument<cr>
+
+nnoremap <leader>ocf :vsc File.OpenContainingFolder<cr>
+
+vnoremap <leader>kc :vsc Edit.CommentSelection<cr>
+vnoremap <leader>ku :vsc Edit.UncommentSelection<cr>
+
+nnoremap <leader>rp :vsc Build.RebuildOnlyProject<cr>
+nnoremap <leader>rs :vsc Build.RebuildSolution<cr>
+nnoremap <leader>bp :vsc Build.BuildOnlyProject<cr>
+nnoremap <leader>bs :vsc Build.BuildSolution<cr>
+nnoremap <C-c> :vsc Build.Cancel<cr>
+
+nnoremap <leader>ll :vsc Debug.Locals<cr>
+nnoremap <leader>qw :vsc Debug.QuickWatch<cr>
+nnoremap <leader>cs :vsc Debug.CallStack<cr>
+
+nnoremap <leader>vo :vsc View.Output<cr>
+
+nnoremap <leader>rc :vsc Debug.RunToCursor<cr>
+
+nnoremap <leader>rat :vsc TestExplorer.RunAllTests<cr>
+nnoremap <leader>rt :vsc TestExplorer.RunAllTestsInContext<cr>
+
+nnoremap <leader>wc :vsc Window.CloseDocumentWindow<cr>
+nnoremap <leader>wh :vsc Window.PreviousDocumentWindow<cr>
+nnoremap <leader>wH :vsc Window.MovetoPreviousTabGroup<cr>
+
+nnoremap <leader>wl :vsc Window.NextDocumentWindow<cr>
+nnoremap <leader>wL :vsc Window.MovetoNextTabGroup<cr>
+
+nnoremap <leader>ws :vsc Window.NewHorizontalTabGroup<cr>
+nnoremap <leader>wv :vsc Window.NewVerticalTabGroup<cr>
+nnoremap <leader>wf :vsc Window.Float<cr>
+
+nnoremap <leader>wS :vsc Window.Split<cr>
+nnoremap <leader>wj :vsc Window.NextSplitPane<cr>
+nnoremap <leader>wk :vsc Window.PreviousSplitPane<cr>
+
+nnoremap <leader>wo :vsc FullScreen<cr>
+
+nnoremap <leader>cu :vsc Team.Git.CompareWithUnmodified<cr>
+nnoremap <leader>gc :vsc Team.Git.GoToGitChanges<cr>
+nnoremap <leader>gs :vsc Team.Git.GoToGitSynchronization<cr>
