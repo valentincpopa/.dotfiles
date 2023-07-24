@@ -8,7 +8,7 @@ set hlsearch=false
 let mapleader=" "
 
 nnoremap <leader>vrr :vsc Refactor.Rename<cr>
-nnoremap <leader>vrf :vsc Edit.FindAllReferences<cr>
+nnoremap <leader>vcr :vsc Edit.FindAllReferences<cr>
 nnoremap <leader>vca :vsc View.QuickActions<cr>
 
 nnoremap <C-l> :vsc View.NextError<cr>zz
@@ -64,9 +64,9 @@ nnoremap <leader>ocf :vsc File.OpenContainingFolder<cr>
 vnoremap <leader>kc :vsc Edit.CommentSelection<cr>
 vnoremap <leader>ku :vsc Edit.UncommentSelection<cr>
 
-nnoremap <leader>rp :vsc Build.RebuildOnlyProject<cr>
+nnoremap <leader>rp :vsc Build.RebuildSelection<cr>
 nnoremap <leader>rs :vsc Build.RebuildSolution<cr>
-nnoremap <leader>bp :vsc Build.BuildOnlyProject<cr>
+nnoremap <leader>bp :vsc Build.BuildSelection<cr>
 nnoremap <leader>bs :vsc Build.BuildSolution<cr>
 nnoremap <C-c> :vsc Build.Cancel<cr>
 
@@ -95,6 +95,8 @@ nnoremap <leader>wf :vsc Window.Float<cr>
 nnoremap <leader>wS :vsc Window.Split<cr>
 nnoremap <leader>wj :vsc Window.NextSplitPane<cr>
 nnoremap <leader>wk :vsc Window.PreviousSplitPane<cr>
+
+nnoremap <leader>wC :vsc Window.CloseAllDocuments<cr>
 
 nnoremap <leader>wo :vsc FullScreen<cr>
 
