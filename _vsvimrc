@@ -96,7 +96,9 @@ nnoremap <leader>wS :vsc Window.Split<cr>
 nnoremap <leader>wj :vsc Window.NextSplitPane<cr>
 nnoremap <leader>wk :vsc Window.PreviousSplitPane<cr>
 
-nnoremap <leader>wC :vsc Window.CloseAllDocuments<cr>
+nnoremap <leader>wx :vsc Window.CloseAllDocuments<cr>
+nnoremap <leader>wp :vsc Window.PinTab<cr>
+nnoremap <leader>wC :vsc Window.CloseAllButPinned<cr>
 
 nnoremap <leader>wo :vsc FullScreen<cr>
 
