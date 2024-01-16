@@ -1,0 +1,146 @@
+{
+    "workbench.colorTheme": "Default Dark+",
+    "yaml.schemas": {
+        "file:///c%3A/Users/Valentin/.vscode/extensions/docsmsft.docs-yaml-1.0.0/dist/toc.schema.json": "/toc\\.yml/i"
+    },
+    "markdownlint.customRules": [
+        "{docsmsft.docs-linting}/markdownlint-custom-rules/rules.js"
+    ],
+    "markdownlint.config": {
+        "MD028": false,
+        "MD025": {
+            "front_matter_title": ""
+        }
+    },
+    "notebook.output.textLineLimit": 100,
+    "cmake.configureOnOpen": true,
+    
+    "vim.easymotion": true,
+    "vim.incsearch": true,
+    "vim.useSystemClipboard": false,
+    "vim.useCtrlKeys": true,
+    "vim.hlsearch": false,
+    "vim.leader": "<space>",
+    "vim.normalModeKeyBindings": [
+        {
+            "before": ["<leader>", "v", "r", "r"],
+            "commands": [
+                "editor.action.rename"
+            ]
+        },
+        {
+            "before": ["<leader>", "v", "c", "r"],
+            "commands": [
+                "editor.action.goToReferences"
+            ]
+        },
+        {
+            "before": ["<leader>", "v", "c", "a"],
+            "commands": [
+                "editor.action.quickFix"
+            ]
+        },
+        {
+            "before": ["g", "d"],
+            "commands": [
+                "editor.action.revealDefinition"
+            ],
+            "after": ["z", "z"]
+        },
+        {
+            "before": ["g", "i"],
+            "commands": [
+                "editor.action.goToImplementation"
+            ],
+            "after": ["z", "z"]
+        },
+        {
+            "before": ["<C-d>"],
+            "after": ["<C-d>", "z", "z"]
+        },
+        {
+            "before": ["<C-u>"],
+            "after": ["<C-u>", "z", "z"]
+        },
+        {
+            "before": ["<leader>", "k", "f"],
+            "commands": [
+                "editor.action.formatDocument"
+            ]
+        },
+        {
+            "before": ["<leader>", "w", "x"],
+            "commands": [
+                "workbench.action.closeAllEditors"
+            ]
+        },
+        {
+            "before": ["<leader>", "w", "c"],
+            "commands": [
+                "workbench.action.closeActiveEditor"
+            ]
+        },
+        {
+            "before": ["<C-b>"],
+            "commands": [
+                "workbench.view.explorer"
+            ]
+        },
+        {
+            "before": ["<leader>", "t", "b"],
+            "commands": [
+                "editor.debug.action.toggleBreakpoint"
+            ]
+        },
+        {
+            "before": ["K"],
+            "commands": [
+                "editor.action.showHover"
+            ]
+        },
+        {
+            "before": ["<leader>", "y"],
+            "after": ["\"", "+", "y"]
+        },
+        {
+            "before": ["<leader>", "Y"],
+            "after": ["\"", "+", "Y"]
+        },
+        {
+            "before": ["<C-F>"],
+            "commands": [
+                "actions.find"
+            ]
+        },
+        {
+            "before": ["<leader>", "s"],
+            "after": [":", "%", "s", "/", "<C-r>", "<C-w>", "/", "<C-r>", "<C-w>", "/", "g", "I", "<Left>", "<Left>", "<Left>"]
+        }
+    ],
+    "vim.visualModeKeyBindings": [
+    {
+            "before": ["<leader>", "k", "c"],
+            "commands": [
+                "editor.action.addCommentLine"
+            ]
+        },
+        {
+            "before": ["<leader>", "k", "u"],
+            "commands": [
+                "editor.action.removeCommentLine"
+            ]
+        },
+        {
+            "before": ["<leader>", "y"],
+            "after": ["\"", "+", "y"]
+        },
+        {
+            "before": ["<leader>", "Y"],
+            "after": ["\"", "+", "Y"]
+        },
+    ],
+    "vim.insertModeKeyBindings": [
+    
+    ],
+    "editor.lineNumbers": "relative"
+}
