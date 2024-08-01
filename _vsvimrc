@@ -105,3 +105,30 @@ nnoremap <leader>wo :vsc FullScreen<cr>
 nnoremap <leader>cu :vsc Team.Git.CompareWithUnmodified<cr>
 nnoremap <leader>gc :vsc Team.Git.GoToGitChanges<cr>
 nnoremap <leader>gs :vsc Team.Git.GoToGitSynchronization<cr>
+
+nnoremap <leader>en( ciw(<C-r>")<Esc>
+nnoremap <leader>en[ ciw[<C-r>"]<Esc>
+nnoremap <leader>en{ ciw{<C-r>"}<Esc>
+nnoremap <leader>en< ciw<lt><C-r>"><Esc>
+nnoremap <leader>en" ciw"<C-r>""<Esc>
+nnoremap <leader>en' ciw'<C-r>"'<Esc>
+nnoremap <leader>en* ciw/*<C-r>"*/<Esc>
+
+vnoremap S( c(<C-r>")<Esc>
+vnoremap S[ c[<C-r>"]<Esc>
+vnoremap S{ c{<C-r>"}<Esc>
+vnoremap S< c<lt><C-r>"><Esc>
+vnoremap S" c"<C-r>""<Esc>
+vnoremap S' c'<C-r>"'<Esc>
+vnoremap S* c/*<C-r>"/*<Esc>
+
+nnoremap ds( vi(dvhp
+nnoremap ds[ vi[dvhp
+nnoremap ds{ vi{dvhp
+nnoremap ds< vi<dvhp
+nnoremap ds" vi"dvhp
+nnoremap ds' vi'dvhp
+
+vnoremap <leader>p "_dP
+nnoremap <leader>d "_d
+vnoremap <leader>d "_d
