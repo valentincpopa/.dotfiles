@@ -1,0 +1,212 @@
+" .ideavimrc is a configuration file for IdeaVim plugin. It uses
+"   the same commands as the original .vimrc configuration.
+" You can find a list of commands here: https://jb.gg/h38q75
+" Find more examples here: https://jb.gg/share-ideavimrc
+
+
+"" -- Suggested options --
+" Show a few lines of context around the cursor. Note that this makes the
+" text scroll if you mouse-click near the start or end of the window.
+set scrolloff=5
+set surround
+
+" --- Enable IdeaVim plugins https://jb.gg/ideavim-plugins
+
+" Highlight copied text
+Plug 'machakann/vim-highlightedyank'
+" Commentary plugin
+Plug 'tpope/vim-commentary'
+
+
+"" -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
+"" Map \r to the Reformat Code action
+"map \r <Action>(ReformatCode)
+
+"" Map <leader>d to start debug
+"map <leader>d <Action>(Debug)
+ignorecase
+"" Map \b to toggle the breakpoint on the current line
+"map \b <Action>(ToggleLineBreakpoint)
+
+" ---- Options -----------------------------------------------
+set ignorecase
+set smartcase
+set incsearch
+set hlsearch
+set tabstop=4
+set shiftwidth=4
+set scrolloff=8
+set relativenumber
+set number
+set visualbell
+set noerrorbells
+set NERDTree
+
+" ---- Leader ------------------------------------------------
+let mapleader=" "
+
+" ---- IdeaVim plugins (emulate popular Vim plugins) ---------
+set surround        " vim-surround: ysiw), cs)], ds), etc.
+set commentary      " gc{motion} to comment
+set ideajoin        " smarter J join
+set clipboard+=unnamed,ideaput
+
+" ============================================================
+"  Refactoring / Code Actions
+"  NOTE: <Action>(...) requires `map`, not `nnoremap`
+"        because noremap variants don't work with <Action>.
+" ============================================================
+map <leader>vrr <Action>(RenameElement)
+map <leader>vcr <Action>(FindUsages)
+map <leader>vca <Action>(ShowIntentionActions)
+
+" ---- Diagnostics / errors ----------------------------------
+map <C-l> <Action>(GotoNextError)
+nnoremap <C-l> <C-l>zz
+map <C-h> <Action>(GotoPreviousError)
+" Tip: combine scroll-centering with a small wrapper:
+nmap <C-l> <Action>(GotoNextError)zz
+nmap <C-h> <Action>(GotoPreviousError)zz
+
+" ---- Method navigation -------------------------------------
+map <leader>m <Action>(MethodDown)
+map <leader>M <Action>(MethodUp)
+
+" ---- Formatting --------------------------------------------
+map <leader>kf <Action>(ReformatCode)
+map <leader>ke <Action>(OptimizeImports)
+
+" ---- Navigation history ------------------------------------
+map <C-o> <Action>(Back)
+map <C-i> <Action>(Forward)
+
+" ---- Rename word under cursor (pure Vim, works with nnoremap)
+nnoremap <leader>s :%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>
+
+" ---- Scroll and center -------------------------------------
+nnoremap <C-d> <C-d>zz
+nnoremap <C-u> <C-u>zz
+
+" ---- Clipboard: yank to system clipboard -------------------
+vnoremap <leader>y "+y
+nnoremap <leader>y "+y
+nnoremap <leader>Y "+Y
+
+" ---- Hover / Search ----------------------------------------
+map K <Action>(ShowHoverInfo)
+map <C-f> <Action>(Find)
+
+" ---- Insert-mode completion --------------------------------
+" IdeaVim doesn't forward insert-mode <Action> well;
+" use the IDE's built-in shortcuts or remap in Keymap settings.
+" These are left as a reminder — they may not work reliably:
+" imap <C-Space> <Action>(CodeCompletion)
+" imap <C-S-Space> <Action>(SmartTypeCompletion)
+
+" ---- Subword (camelCase) navigation ------------------------
+" IdeaVim has built-in camelCase motion via `set camelcasemotion`
+set camelcasemotion
+" The plugin provides <leader>w, <leader>b, <leader>e — you can
+" remap them or keep the defaults. Alternatively:
+map <C-b> <Action>(EditorPreviousWord)
+map <C-w> <Action>(EditorNextWord)
+xmap <C-b> <Action>(EditorPreviousWordWithSelection)
+xmap <C-w> <Action>(EditorNextWordWithSelection)
+
+" ---- Go to definition / implementation ---------------------
+map gd <Action>(GotoDeclaration)
+map gi <Action>(GotoImplementation)
+
+" ---- Search result centering -------------------------------
+nnoremap n nzz
+nnoremap N Nzz
+
+" ---- Testing -----------------------------------------------
+map <leader>tx <Action>(ActivateTestToolWindow)
+map <leader>rat <Action>(RunClass)
+map <leader>rt <Action>(RunClass)
+
+" ---- Error list --------------------------------------------
+map <leader>er <Action>(ActivateProblemsViewToolWindow)
+
+" ---- Breakpoints -------------------------------------------
+map <leader>tb <Action>(ToggleLineBreakpoint)
+map <leader>eb <Action>(EnableBreakpoints)
+map <leader>db <Action>(DisableBreakpoints)
+map <leader>ddb <Action>(EditBreakpoint)
+
+" ---- Solution / Project explorer ---------------------------
+map <leader>ad <Action>(SelectInProjectView)
+
+" ---- Open containing folder --------------------------------
+map <leader>ocf <Action>(RevealIn)
+
+" ---- Comments (visual) -------------------------------------
+" `set commentary` gives you `gc` — but keeping your leader bindings:
+vmap <leader>kc <Action>(CommentByLineComment)
+vmap <leader>ku <Action>(CommentByLineComment)
+
+" ---- Build -------------------------------------------------
+map <leader>rp <Action>(CompileDirty)
+map <leader>rs <Action>(RebuildProject)
+map <leader>bp <Action>(CompileDirty)
+map <leader>bs <Action>(MakeProject)
+map <C-c> <Action>(Stop)
+
+" ---- Debug windows -----------------------------------------
+map <leader>ll <Action>(ActivateDebugToolWindow)
+map <leader>qw <Action>(QuickEvaluateExpression)
+map <leader>cs <Action>(ActivateDebugToolWindow)
+
+" ---- Output panel ------------------------------------------
+map <leader>vo <Action>(ActivateRunToolWindow)
+
+" ---- Run to cursor -----------------------------------------
+map <leader>rc <Action>(RunToCursor)
+
+" ---- Window / tab management -------------------------------
+map <leader>wc <Action>(CloseContent)
+map <leader>wh <Action>(PreviousTab)
+map <leader>wl <Action>(NextTab)
+map <leader>wH <Action>(MoveTabLeft)
+map <leader>wL <Action>(MoveTabRight)
+map <leader>ws <Action>(SplitHorizontally)
+map <leader>wv <Action>(SplitVertically)
+map <leader>wj <Action>(NextSplitter)
+map <leader>wk <Action>(PrevSplitter)
+map <leader>wx <Action>(CloseAllEditors)
+map <leader>wp <Action>(PinActiveTabToggle)
+map <leader>wC <Action>(CloseAllEditorsButActive)
+map <leader>wo <Action>(ToggleFullScreen)
+
+" ---- Git ---------------------------------------------------
+map <leader>cu <Action>(Vcs.ShowDiffChangedLines)
+map <leader>gc <Action>(ActivateVersionControlToolWindow)
+map <leader>gs <Action>(Vcs.UpdateProject)
+
+" ============================================================
+"  Surround / wrap word
+"  Uses `set surround` (vim-surround emulation).
+"  The `ysiw` family replaces your <leader>en* mappings:
+"    ysiw)  → wrap word with ()
+"    ysiw]  → wrap word with []
+"    ysiw}  → wrap word with {}
+"    ysiw"  → wrap word with ""
+"    ysiw'  → wrap word with ''
+"  Keeping your custom mappings as fallback too:
+" ============================================================
+nnoremap <leader>en( ciw(<C-r>")<Esc>
+nnoremap <leader>en[ ciw[<C-r>"]<Esc>
+nnoremap <leader>en{ ciw{<C-r>"}<Esc>
+nnoremap <leader>en< ciw<lt><C-r>"><Esc>
+nnoremap <leader>en" ciw"<C-r>""<Esc>
+nnoremap <leader>en' ciw'<C-r>"'<Esc>
+nnoremap <leader>en* ciw/*<C-r>"*/<Esc>
+
+" ---- Paste without losing register -------------------------
+vnoremap <leader>p "_dP
+nnoremap <leader>d "_d
+vnoremap <leader>d "_d
+
+nnoremap <A-l> :action ExpandTreeNode<CR>
+nnoremap <A-h> :action CollapseTreeNode<CR>
